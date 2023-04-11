@@ -1,7 +1,6 @@
 {
   "name": "testing-mern-commerce",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "directories": {
     "test": "test"
@@ -18,5 +17,6 @@
   "devDependencies": {
     "chai": "^4.3.7",
     "mocha": "^10.2.0"
-  }
+  },
+  "description": ""
 }
