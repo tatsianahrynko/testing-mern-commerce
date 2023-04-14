@@ -5,11 +5,13 @@ const expect =  chai.expect;
 const casual = require('casual'); 
 const { url } = require('inspector');
 const superagent = require('superagent');
+const clientAddress = require("../src/client/address");
+const clientAuth = require("../src/client/auth");
 
 const baseUrl = "https://mern-ecommerce.sdet.school/api"
 
 describe("Test address endpoints", ()=> {
-    let token; //token now undefined
+    let token; //token undefined
     beforeEach(async ()=> {    
         
         const reqBody = {
@@ -17,17 +19,16 @@ describe("Test address endpoints", ()=> {
             password: "qwEsz_123"
           }
           try {
-            const response = await superagent.post(baseUrl + "/auth/login").send(reqBody);
+            const response = await clientAuth.login(reqBody); 
             token = (response.body.token);
           }catch (error) {
-            console.log("catch?")
+            
             console.error(error.message);
           }
     });
+
     it("should add address to user", async ()=>{
-      // const street = casual.street;
-      // const city = casual.city;
-      //const state = casual.state
+      
       const {street , city, state} = casual; //distructors
       const zip =  casual.zip(5);
 
@@ -39,16 +40,17 @@ describe("Test address endpoints", ()=> {
           country: "US",
           zipCode: zip
 }
-//console.log("addressOpt", addressOpt);
 let response; // to make it visible outside
 //making a call
+
+const opts = {
+  token,
+  address: addressOpt
+}
+//console.log(opts);
+
 try {
-  response = await superagent.post(baseUrl+"/address/add")
-  .set({
-    Authorization: token
-  })
-  .send(addressOpt)
-   
+  response = await clientAddress.addAddress(opts)   
 }catch(err){
   console.log(err.message)
 }
@@ -67,5 +69,20 @@ expect(response.body).to.containSubset({
         __v: 0
     }    
 })
+    });
+    it.only("should register user", async()=>{
+      const opts = {
+          "email": "user11111111@email.com",
+          "firstName": "Harold",
+          "lastName": "Olsen",
+          "password": "Password1"        
+      }
+      let response;
+      try {
+        response = await clientAuth.register(opts)   
+      }catch(err){
+        console.log(err)
+      }
+      console.log(response);
     })
 });
