@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "chai-subset": "^1.6.0",
     "superagent": "^8.0.9"
   },

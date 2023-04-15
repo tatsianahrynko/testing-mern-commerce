@@ -7,25 +7,26 @@ const { url } = require('inspector');
 const superagent = require('superagent');
 const clientAddress = require("../src/client/address");
 const clientAuth = require("../src/client/auth");
+const {User} = require("..//src/users/user")
 
 const baseUrl = "https://mern-ecommerce.sdet.school/api"
 
 describe("Test address endpoints", ()=> {
     let token; //token undefined
-    beforeEach(async ()=> {    
+    // beforeEach(async ()=> {    
         
-        const reqBody = {
-            email: "tatianautest@gmail.com",
-            password: "qwEsz_123"
-          }
-          try {
-            const response = await clientAuth.login(reqBody); 
-            token = (response.body.token);
-          }catch (error) {
+    //     const reqBody = {
+    //         email: "tatianautest@gmail.com",
+    //         password: "qwEsz_123"
+    //       }
+    //       try {
+    //         const response = await clientAuth.login(reqBody); 
+    //         token = (response.body.token);
+    //       }catch (error) {
             
-            console.error(error.message);
-          }
-    });
+    //         console.error(error.message);
+    //       }
+    // });
 
     it("should add address to user", async ()=>{
       
@@ -70,7 +71,7 @@ expect(response.body).to.containSubset({
     }    
 })
     });
-    it.only("should register user", async()=>{
+    it("should register user", async()=>{
       const opts = {
           "email": "user11111111@email.com",
           "firstName": "Harold",
@@ -85,4 +86,12 @@ expect(response.body).to.containSubset({
       }
       console.log(response);
     })
-});
+    it.only("should create a User", async()=> {
+      const user =  new User();
+        // password: "xxx",
+        // firstName: "dddd"
+        await user.register();
+    });
+      console.log(User)
+
+    });
