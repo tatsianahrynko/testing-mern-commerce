@@ -13,20 +13,22 @@ const baseUrl = "https://mern-ecommerce.sdet.school/api"
 
 describe("Test address endpoints", ()=> {
     let token; //token undefined
-    // beforeEach(async ()=> {    
+        beforeEach(async ()=> {    
         
-    //     const reqBody = {
-    //         email: "tatianautest@gmail.com",
-    //         password: "qwEsz_123"
-    //       }
-    //       try {
-    //         const response = await clientAuth.login(reqBody); 
-    //         token = (response.body.token);
-    //       }catch (error) {
+            const reqBody = {
+                 // email: "tatianautest@gmail.com",
+                 // password: "qwEsz_123"
+                 email: "Myrtle_Ullrich@gmail.com",
+                 password: "Password1"
+              }
+              try {
+                const response = await clientAuth.login(reqBody); 
+                token = (response.body.token);
+              }catch (error) {
             
-    //         console.error(error.message);
-    //       }
-    // });
+                console.error(error.message);
+              }
+        });
 
     it("should add address to user", async ()=>{
       
@@ -40,6 +42,7 @@ describe("Test address endpoints", ()=> {
           state: state,
           country: "US",
           zipCode: zip
+
 }
 let response; // to make it visible outside
 //making a call
@@ -55,7 +58,7 @@ try {
 }catch(err){
   console.log(err.message)
 }
-//console.log(response.body)
+console.log(response.body)
 expect(response.body).to.containSubset({
     success: true,
     message: 'Address has been added successfully!',
@@ -71,6 +74,7 @@ expect(response.body).to.containSubset({
     }    
 })
     });
+
     it("should register user", async()=>{
       const opts = {
           "email": "user11111111@email.com",
@@ -86,12 +90,10 @@ expect(response.body).to.containSubset({
       }
       console.log(response);
     })
-    it.only("should create a User", async()=> {
-      const user =  new User();
-        // password: "xxx",
-        // firstName: "dddd"
-        await user.register();
-    });
-      console.log(User)
-
+    it.only("should create a User", async()=> {     
+        const user = await User.createUser();
+        const addressResponse = await user.addAddress();
+         console.log(user);
+         console.log(addressResponse.body);
+    });      
     });

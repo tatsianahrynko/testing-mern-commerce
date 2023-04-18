@@ -8,8 +8,19 @@ const randomUser = () => {
         password: "Password1"
     }
 }
+const randomaddress = () => {
+    return {
 
-module.exports = {randomUser};
+            isDefault: false,
+            street: faker.address.streetAddress(),
+            city: faker.address.city(),
+            state: faker.address.state(),
+            country: "USA",
+            zipCode: faker.address.zipCode(),         
+    }
+}
+
+module.exports = {randomUser, randomaddress};
         
         
         
