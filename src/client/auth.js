@@ -1,7 +1,7 @@
 const superagent = require('superagent');
 
 
-const baseUrl = "https://mern-ecommerce.sdet.school/api";
+const baseUrl = 'https://mern-ecommerce.sdet.school/api';
 
 /**
  * Adding address to user
@@ -11,17 +11,17 @@ const baseUrl = "https://mern-ecommerce.sdet.school/api";
  * @returns {Promise<object>}
  */
 
-const login = async (opts) =>{
+const login = async (opts) => {
 
     if(opts.email === null || opts.password === null) {
-        throw new Error("login: required param not passed");        
+        throw new Error('login: required param not passed');        
     }
     const body = {
         email: opts.email,
         password: opts.password
-    }
-    return superagent.post(baseUrl + "/auth/login").send(body);
-}
+    };
+    return superagent.post(baseUrl + '/auth/login').send(body);
+};
 /**
  * Adding address to user
  * 
@@ -35,8 +35,8 @@ const login = async (opts) =>{
  * @returns {Promise<object>}
  */
 
-const register = (userInfo) =>{
-    return superagent.post(baseUrl + "/auth/register").send(userInfo);
-}
+const register = (userInfo) => {
+    return superagent.post(baseUrl + '/auth/register').send(userInfo);
+};
 
-module.exports = {login, register};
+module.exports = { login, register };

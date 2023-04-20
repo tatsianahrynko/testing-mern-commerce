@@ -1,6 +1,6 @@
-const helper = require("../helper/userGenerator");
-const auth = require("../client/auth");
-const address = require("../client/address");
+const helper = require('../helper/userGenerator');
+const auth = require('../client/auth');
+const address = require('../client/address');
 
 class User {
     /**
@@ -14,7 +14,7 @@ class User {
      * @param {string} opts.role - user role
      * @param {string} opts.token - user token 
      */
-    constructor(opts={}){        
+    constructor(opts={}) {        
         this.email = opts.email;
         this.firstName = opts.firstName;
         this.lastName = opts.lastName;
@@ -30,29 +30,29 @@ class User {
             firstName: opts.firstName||randomUser.firstName,
             lastName: opts.lastName||randomUser.lastName,
             password: opts.password || randomUser.password
-        }
+        };
         const resp = await auth.register(userOpt);
         //console.log(resp.body);
         userOpt.id = resp.body.user.id;
         userOpt.role = resp.body.user.role;
         userOpt.token = resp.body.token;
         return new User(userOpt); //'new' operator reserves memory             
-        }
-        async addAddress(opts = {}){
-            const randomaddress = helper.randomaddress();
-            const addressOpts = {
-                token: this.token,
-                address: {
-                        isDefault: opts.isDefault || randomaddress.isDefault,
-                        address: opts.street || randomaddress.street,
-                        city: opts.city || randomaddress.city,
-                        state: opts.state || randomaddress.state,
-                        country: opts.country || randomaddress.country,
-                        zipCode: opts.zip || randomaddress.zipCode
-                }
-            } 
-            return address.addAddress(addressOpts);
+    }
+    async addAddress(opts = {}) {
+        const randomaddress = helper.randomaddress();
+        const addressOpts = {
+            token: this.token,
+            address: {
+                isDefault: opts.isDefault || randomaddress.isDefault,
+                address: opts.street || randomaddress.street,
+                city: opts.city || randomaddress.city,
+                state: opts.state || randomaddress.state,
+                country: opts.country || randomaddress.country,
+                zipCode: opts.zip || randomaddress.zipCode
+            }
+        }; 
+        return address.addAddress(addressOpts);
 
-        }
+    }
 }
-module.exports = {User};
+module.exports = { User };
