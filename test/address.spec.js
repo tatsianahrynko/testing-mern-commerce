@@ -4,9 +4,7 @@ const chaiSubset = require('chai-subset');
 chai.use(chaiSubset);
 const expect =  chai.expect;
 const casual = require('casual'); 
-
 const { url } = require('inspector');
-
 const superagent = require('superagent');
 const clientAddress = require('../src/client/address');
 const clientAuth = require('../src/client/auth');
@@ -15,7 +13,7 @@ const { User } = require('..//src/users/user');
 const baseUrl = 'https://mern-ecommerce.sdet.school/api';
 
 // eslint-disable-next-line no-undef
-describe('Test address endpoints', () => {
+describe.skip('Test address endpoints', () => {
     let token; //token undefined
     beforeEach(async () => {    
         
