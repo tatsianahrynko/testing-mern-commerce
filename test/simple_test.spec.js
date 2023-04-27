@@ -4,8 +4,6 @@ const username = 'Jerome20@hotmail.com';
 const password = 'Password1';
 const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout (resolve, ms); }); };
 
-;
-
 describe('Very simple test', () => {
     it('should make a simple test', async() => {
         console.log('hello, world');
