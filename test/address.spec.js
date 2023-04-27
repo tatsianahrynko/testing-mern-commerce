@@ -92,7 +92,7 @@ describe.skip('Test address endpoints', () => {
         }
         console.log(response);
     });
-    it.only('should create a User', async() => {     
+    it('should create a User', async() => {     
         const user = await User.createUser();
         const addressResponse = await user.addAddress();
         console.log(user);

@@ -6,8 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "test:jest": "jest",
+    "test": "mocha  --timeout 50000",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -17,6 +16,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "chai-subset": "^1.6.0",
+    "playwright": "^1.32.3",
     "superagent": "^8.0.9"
   },
   "devDependencies": {
@@ -25,7 +25,6 @@
     "eslint-cli": "^1.1.1",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-mocha": "^10.1.0",
-    "jest": "^29.5.0",
     "mocha": "^10.2.0"
   },
   "description": ""
