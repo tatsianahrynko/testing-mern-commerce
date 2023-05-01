@@ -1,10 +1,12 @@
 const { expect } = require('chai');
-const browsers = require('playwright'); // I loaded browsers from the playwright
+const browsers = require('playwright'); 
 const username = 'Jerome20@hotmail.com';
 const password = 'Password1';
+const WelcomePage = require('../src/page_objects/welcome_page');
+
 const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout (resolve, ms); }); };
 
-describe('Login test', () => {
+describe.only('Login functionality', () => {
     let browser; //visible variables
     let context;  
     let page;
@@ -22,10 +24,11 @@ describe('Login test', () => {
             }
         });
         await context.setDefaultTimeout(5000);
+        page = await context.newPage();
     });      
     
     afterEach(async () => {
-        await sleep (2000);
+        await sleep (6000);
         await page.close();
         await browser.close();
     });
