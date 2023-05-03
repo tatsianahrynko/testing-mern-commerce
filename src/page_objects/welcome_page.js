@@ -15,6 +15,7 @@ class WelcomePage {
         await this.page.getByText('Login').click();
         return new LoginPage(this.page);
     }
+
     /**
      * Search for product
      * 
@@ -35,5 +36,4 @@ class WelcomePage {
         return new ProductPage(this.page);
     }
 }
-
 module.exports =  WelcomePage; 

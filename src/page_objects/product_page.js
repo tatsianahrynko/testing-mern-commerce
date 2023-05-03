@@ -3,5 +3,4 @@ class ProductPage {
         this.page = page;
     }
 }
-
 module.exports =  ProductPage; 
