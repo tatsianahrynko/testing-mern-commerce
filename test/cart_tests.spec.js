@@ -9,7 +9,8 @@ const sleep = async (ms) => { return new Promise((resolve) => { return setTimeou
 describe.only('Cart functionality', () => {
     let browser;
     let context;
-    let page;    
+    let page;   
+     
     beforeEach(async() => {
         const browserType = browsers['webkit'];
         browser = await browserType.launch({

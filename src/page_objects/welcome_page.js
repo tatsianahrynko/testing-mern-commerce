@@ -36,5 +36,4 @@ class WelcomePage {
         return new ProductPage(this.page);
     }
 }
-
 module.exports =  WelcomePage; 
