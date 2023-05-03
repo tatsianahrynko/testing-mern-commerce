@@ -1,0 +1,32 @@
+{
+  "name": "testing-mern-commerce",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha  --timeout 50000",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "casual": "^1.6.2",
+    "chai-subset": "^1.6.0",
+    "playwright": "^1.32.3",
+    "superagent": "^8.0.9"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "eslint": "^8.39.0",
+    "eslint-cli": "^1.1.1",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-mocha": "^10.1.0",
+    "mocha": "^10.2.0"
+  },
+  "description": ""
+}
