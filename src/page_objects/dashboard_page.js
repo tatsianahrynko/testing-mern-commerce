@@ -1,4 +1,4 @@
-//const DashboardPage = require('./dashboard_page'); 
+const DrawerPage = require('./drawer_page');
 
 class DashboardPage {
     constructor(page) {
@@ -7,6 +7,10 @@ class DashboardPage {
     async isOpen() {
         const element = await this.page.locator('//*[@class="role member "]');
         return element.textContent();       
+    }
+    async openCart() {
+        await this.page.locator('.bag-icon');
+        return new DrawerPage(this.page);
     }
 }
 module.exports =  DashboardPage;

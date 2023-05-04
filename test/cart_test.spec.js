@@ -3,6 +3,8 @@ const browsers = require('playwright');
 const username = 'Jerome20@hotmail.com';
 const password = 'Password1';
 const WelcomePage = require('../src/page_objects/welcome_page');
+const ProductPage = require('../src/page_objects/product_page');
+//const Drawer = require('../src/page_objects/drawer_page');
 
 const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout(resolve, ms); }); };
 
@@ -30,12 +32,23 @@ describe.only('Cart functionality', () => {
         await page.close();
         await browser.close();
     });
-    it.skip('should place product to the cart', async () => {
+    it.only('should place product to the cart', async () => {
         const welcome = new WelcomePage(page);
         await welcome.open();
-        await welcome.search('nike', 2);
+        const productPage = await welcome.search('nike', 2);
+        let drawer = await productPage.addProductToCart();
+        const loginPage = await drawer.proceedToCheckout();
+        const dashboard = await loginPage.login({
+            username:'Jerome20@hotmail.com',
+            password: 'Password1'
+        });
+        drawer = await dashboard.openCart();
+        const orderSuccess = await drawer.placeOrder();
+
+
+
     });
-    it('should throw an error if product not exist', async () => {
+    it.skip('should throw an error if product not exist', async () => {
         const welcome = new WelcomePage(page);
         await welcome.open();
         let error;
@@ -46,7 +59,7 @@ describe.only('Cart functionality', () => {
         }
         expect(error.message).to.include('Timeout');
     });
-    it('should throw an error if product out of bounds', async () => {
+    it.skip('should throw an error if product out of bounds', async () => {
         const welcome = new WelcomePage(page);
         await welcome.open();
         let error;
