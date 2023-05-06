@@ -3,9 +3,11 @@ class OrderSuccessPage {
         this.page = page;
     }
     async getOrderId() {
-        const text = this.page.locator('.order-label').textContent();
-        console.log(text);
+        const text = await this.page.locator('.order-label').textContent();
+        //console.log(text);
+        return text.substring(1); //returns order without 1st hashtag
     }
 }
 
-module.exports = OrderSuccessPage;
+export default OrderSuccessPage;
+//module.exports = OrderSuccessPage;

@@ -1,5 +1,7 @@
-const LoginPage = require('./login_page'); //I can use this class on Wecome page
-const ProductPage = require('./product_page');
+import LoginPage from './login_page.js';
+import ProductPage from './product_page.js';
+// const LoginPage = require('./login_page'); 
+// const ProductPage = require('./product_page');
 
 class WelcomePage {
     constructor(page) {
@@ -37,4 +39,5 @@ class WelcomePage {
     }
 }
 
-module.exports =  WelcomePage; 
+export default WelcomePage; 
+//module.exports =  WelcomePage; 

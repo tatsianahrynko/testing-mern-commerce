@@ -1,4 +1,5 @@
-const { faker } = require('@faker-js/faker');
+import { faker } from '@faker-js/faker';
+//const { faker } = require('@faker-js/faker');
 
 const randomUser = () => {
     return {
@@ -20,7 +21,7 @@ const randomaddress = () => {
     };
 };
 
-module.exports = { randomUser, randomaddress };
-        
+export default { randomUser, randomaddress };
+//module.exports = { randomUser, randomaddress };       
         
         

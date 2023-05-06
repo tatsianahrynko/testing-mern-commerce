@@ -1,6 +1,9 @@
-const helper = require('../helper/userGenerator');
-const auth = require('../client/auth');
-const address = require('../client/address');
+import helper from '../helper/userGenerator.js';
+import auth from '../client/auth.js';
+import address from '../client/address.js';
+// const helper = require('../helper/userGenerator');
+// const auth = require('../client/auth');
+// const address = require('../client/address');
 
 class User {
     /**
@@ -54,5 +57,11 @@ class User {
         return address.addAddress(addressOpts);
 
     }
+
+    /**
+ * Get user Order
+ */
+
 }
-module.exports = { User };
+export default { User };
+//module.exports = { User };

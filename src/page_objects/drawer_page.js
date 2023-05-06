@@ -1,5 +1,7 @@
-const LoginPage = require('./login_page.js');
-const OrderSuccessPage = require('./order_success_page.js');
+import LoginPage from './login_page.js';
+import OrderSuccessPage from './order_success_page.js';
+//const LoginPage = require('./login_page.js');
+//const OrderSuccessPage = require('./order_success_page.js');
 
 class DrawerPage {
     constructor(page) {
@@ -16,5 +18,5 @@ class DrawerPage {
 
     }
 }
-
-module.exports =  DrawerPage;
+export default DrawerPage;
+//module.exports =  DrawerPage;

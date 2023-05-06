@@ -1,4 +1,5 @@
-const DashboardPage = require('./dashboard_page');
+import DashboardPage from './dashboard_page.js';
+//const DashboardPage = require('./dashboard_page');
 
 class LoginPage {
     constructor(page) {
@@ -22,4 +23,5 @@ class LoginPage {
         return true;
     }
 }
-module.exports = LoginPage;
+export default LoginPage;
+//module.exports = LoginPage;

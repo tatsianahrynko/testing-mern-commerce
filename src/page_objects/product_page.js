@@ -1,4 +1,5 @@
-const DrawerPage = require('./drawer_page');
+import DrawerPage from './drawer_page.js';
+//const DrawerPage = require('./drawer_page');
 
 class ProductPage {
     constructor(page) {
@@ -10,4 +11,5 @@ class ProductPage {
     }
 }
 
-module.exports =  ProductPage; 
+export default ProductPage; 
+//module.exports =  ProductPage;

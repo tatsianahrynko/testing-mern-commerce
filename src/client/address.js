@@ -1,4 +1,5 @@
-const superagent = require('superagent');
+import superagent from 'superagent';
+//const superagent = require('superagent');
 
 
 const baseUrl = 'https://mern-ecommerce.sdet.school/api';
@@ -23,4 +24,5 @@ const addAddress = async (opts) => {
     return superagent.post(baseUrl + '/address/add').set(authHeader).send(opts.address);
 };
 
-module.exports = { addAddress };
+export default { addAddress };
+//module.exports = { addAddress };
