@@ -5,7 +5,7 @@ const baseUrl = 'https://mern-ecommerce.sdet.school/api';
 
 /**
  * Adding address to user
- * @param {object} opts - parans passed in
+ * @param {object} opts - params passed in
  * @param {string} opts.email - user's email
  * @param {string} opts.password- user's password
  * @returns {Promise<object>}
@@ -39,5 +39,5 @@ export const register = (userInfo) => {
     return superagent.post(baseUrl + '/auth/register').send(userInfo);
 };
 
-//export default { login, register };
+export default { login, register };
 //module.exports = { login, register };

@@ -6,7 +6,7 @@ import { login } from '../src/client/auth.js';
 import WelcomePage from '../src/page_objects/welcome_page.js';
 
 const username = 'Jerome20@hotmail.com';
-const password = 'Password1';
+const password = 'Password1'; 
 
 // const { expect } = require('chai');
 // const browsers = require('playwright');
@@ -16,9 +16,9 @@ const password = 'Password1';
 // const ProductPage = require('../src/page_objects/product_page');
 
 
-const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout(resolve, ms); }); };
+//const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout(resolve, ms); }); };
 
-describe.only('Cart functionality', () => {
+describe.skip('Cart functionality', () => {
     let browser;
     let context;
     let page;

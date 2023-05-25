@@ -1,11 +1,16 @@
-import { expect } from 'chai';
+import { expect, use } from 'chai';
 import browsers from 'playwright';
 import { getUserOrders } from '../src/client/orders.js';
 import { login } from '../src/client/auth.js';
-
+import { User } from '../src/users/user.js';
 import WelcomePage from '../src/page_objects/welcome_page.js';
 
-describe('Create user, and adding products to the cart and create order', () => {
+const sleep = async (ms) => { return new Promise((resolve) => { return setTimeout(resolve, ms); }); };
+
+describe.only('Create user, and adding products to the cart and create order', () => {
+    let browser;
+    let context;
+    let page;
     beforeEach(async() => {
         const browserType = browsers['webkit'];
         browser = await browserType.launch({
@@ -22,12 +27,14 @@ describe('Create user, and adding products to the cart and create order', () => 
         page = await context.newPage();
     });  
     afterEach(async() => {
-        await sleep(7000);
+        await sleep(3000);
         await page.close();
         await browser.close();
     });
     it('should create an order', async () => {
-        console.log('WWWWWWW');
+        //console.log('WWWWWWW');
+        const user = await User.createUser();
+        await user.addAddress();
     });
 });
 
